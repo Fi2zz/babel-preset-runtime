@@ -3,6 +3,10 @@ module.exports = function (_api, opts) {
 	if (!opts) {
 		opts = {};
 	}
+
+	const isEnvDevelopment =
+		process.env.NODE_ENV == "development" ||
+		process.env.BABEL_ENV == "development";
 	const userPresets = opts.presets || [];
 	const userPlugins = opts.plugins || [];
 	const defaultRutime = {
@@ -21,9 +25,16 @@ module.exports = function (_api, opts) {
 	};
 
 	let react = [];
-
 	if (opts.react) {
-		react = [require("@babel/preset-react").default, opts.react];
+		const optsReact = typeof opts.react == "object" ? opts.react : {};
+		react = [
+			require("@babel/preset-react").default,
+			{
+				development: isEnvDevelopment,
+				runtime: "automatic",
+				...optsReact,
+			},
+		];
 	}
 	return {
 		presets: [
