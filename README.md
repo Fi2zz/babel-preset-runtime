@@ -6,15 +6,15 @@ Extending `@babel/preset-env`
 
 First, [install Babel](https://babeljs.io/docs/setup/).
 
-Then install babel-preset-rutime.
+Then install babel-preset-runtime.
 
 ```bash
 
     # npm
-    npm install babel-preset-rutime
+    npm install babel-preset-runtime
 
     # yarn
-    yarn add babel-preset-rutime
+    yarn add babel-preset-runtime
 
 
 ```
@@ -23,11 +23,11 @@ Then create a file named `.babelrc` or `babel.config` with following contents in
 
 ```json
 {
-	"presets": ["babel-preset-rutime"]
+	"presets": ["babel-preset-runtime"]
 }
 ```
 
-Default configs of `babel-preset-rutime`
+Default configs of `babel-preset-runtime`
 
 ```javascript
 //  @babel/preset-env
@@ -73,7 +73,7 @@ Add react support
 {
 	"presets": [
 		[
-			"babel-preset-rutime",
+			"babel-preset-runtime",
 			{
 				//options of @babel/preset-react
 				"react": {}
